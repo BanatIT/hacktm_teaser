@@ -12,6 +12,16 @@ function switchYear() {
         index++;
         if(index == values.length) {
             $('#last-digit').addClass('who-knows');
+
+            setTimeout(function(){
+                $(".span-digits").fadeTo("slow" , 0.1, function() {
+                    $("#last-digit").removeClass('who-knows');
+                    $(this).html('?').show(100);
+                    $(this).fadeTo("slow" , 1, function(){});
+                });
+
+            }, 2000);
+            
             clearInterval(switchInt);
         }
     }, 2000);
